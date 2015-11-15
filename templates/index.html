@@ -5,6 +5,11 @@
     <title>Pur Porringer</title>
   </head>
   <body>
-    {{ ip }}
+    {{ cmds }}
+
+    <form method="POST" action="{% url 'index' %}">
+      <input type="submit" value="Call Command" />
+    </form>
+
   </body>
 </html>

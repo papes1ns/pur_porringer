@@ -1,35 +1,26 @@
 import datetime
-import socket
+import json
 
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import ip
-
-def index(request):
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    ip_address = None
-    for obj in ip.objects.filter(active=True):
-        try:
-            s.connect((obj.ip, 8888))
-            ip_address = obj.ip
-            s.send("TEST")
-        except Exception, e:
-            obj.active = False
-            obj.save()
-    s.close()
-    return render(request, "index.html", { "ip": ip_address })
+from .models import Command
 
 @csrf_exempt
-def ip_broker(request):
-    ip_address = request.POST.get("ip", None)
+def index(request):
+    if request.method == "POST":
+        Command.objects.create()
+    cmds = Command.objects.filter(ran=False)
+    return render(request, "index.html", { "cmds": cmds })
 
-    if ip is not None:
-        obj, created = ip.objects.get_or_create(ip=ip_address)
-        obj.active = True
-        obj.modified = datetime.datetime.now()
-        obj.save()
-
-    return HttpResponse("GOOD")
+@csrf_exempt
+def command_queue(request):
+    try:
+        cmd = Command.objects.filter(ran=False)[0]
+        cmd.ran = True
+        cmd.save()
+        return HttpResponse("1")
+    except Exception, e:
+        print e
+        return HttpResponse("0")

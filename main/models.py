@@ -1,10 +1,11 @@
 from django.db import models
 
 
-class ip(models.Model):
-    ip = models.CharField(max_length=16)
-    active = models.BooleanField(default=False)
-    modified = models.DateTimeField(auto_now_add=True)
+class Command(models.Model):
+    CMDS = (
+        ("sm", "Start Motor"),
+    )
 
-    def __unicode__(self):
-        return self.ip
+    cmd = models.CharField(choices=CMDS, max_length=2, default="sm")
+    ran = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now=True)
