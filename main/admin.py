@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import ip
+from .models import Command
 
-admin.site.register(ip)
+admin.site.register(Command)
