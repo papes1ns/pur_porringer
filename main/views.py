@@ -11,7 +11,7 @@ from .models import Command
 def index(request):
     if request.method == "POST":
         call_motor_on()
-    return render(request, "index.html", { "cmds": cmds })
+    return render(request, "index.html")
 
 
 def call_motor_on():
