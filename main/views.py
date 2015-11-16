@@ -1,5 +1,5 @@
 import datetime
-import json
+from paramiko import SSHClient, AutoAddPolicy
 
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
@@ -10,17 +10,16 @@ from .models import Command
 @csrf_exempt
 def index(request):
     if request.method == "POST":
-        Command.objects.create()
-    cmds = Command.objects.filter(ran=False)
+        call_motor_on()
     return render(request, "index.html", { "cmds": cmds })
 
-@csrf_exempt
-def command_queue(request):
-    try:
-        cmd = Command.objects.filter(ran=False)[0]
-        cmd.ran = True
-        cmd.save()
-        return HttpResponse("1")
-    except Exception, e:
-        print e
-        return HttpResponse("0")
+
+def call_motor_on():
+    client = SSHClient()
+    client.load_system_host_keys()
+    client.set_missing_host_key_policy(AutoAddPolicy())
+    client.connect("127.0.0.1", 2222, "pi", "raspberry")
+    stdin, stdout, stderr = client.exec_command("ls ~/Desktop")
+
+    for line in stdout.read().splitlines():
+        print line
