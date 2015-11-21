@@ -4,6 +4,7 @@ from paramiko import SSHClient, AutoAddPolicy
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from .models import Log
 
@@ -20,12 +21,12 @@ def index(request):
             print e
 
     context["client"] = client
-    context["log"] = Log.objects.all()[:10][::-1]
+    context["log"] = Log.objects.all().order_by("-ran")[:10]
     return render(request, "index.html", context)
 
 
 def call_motor_on(client):
-    stdin, stdout, stderr = client.exec_command("sudo . /home/pi/motor_on.py")
+    stdin, stdout, stderr = client.exec_command("sudo ./motor_on.py")
 
 def is_connected():
     client = SSHClient()
