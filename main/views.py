@@ -3,7 +3,7 @@ from paramiko import SSHClient, AutoAddPolicy
 
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from .models import Log
 
@@ -15,6 +15,7 @@ def index(request):
         try:
             call_motor_on()
             Log.objects.create()
+            return HttpResponseRedirect(reverse("index"))
         except Exception, e:
             print e
 
