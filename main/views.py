@@ -32,7 +32,7 @@ def is_connected():
     client.load_system_host_keys()
     client.set_missing_host_key_policy(AutoAddPolicy())
     try:
-        client.connect("127.0.0.1", 2222, "pi", "raspberry", 5)
+        client.connect("127.0.0.1", 2222, "pi", "raspberry")
         return client
     except Exception, e:
         print e
