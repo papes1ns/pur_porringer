@@ -1,11 +1,8 @@
 from django.db import models
 
 
-class Command(models.Model):
-    CMDS = (
-        ("sm", "Start Motor"),
-    )
+class Log(models.Model):
+    ran = models.DateTimeField(auto_now_add=True)
 
-    cmd = models.CharField(choices=CMDS, max_length=2, default="sm")
-    ran = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now=True)
+    def __unicode__(self):
+        return self.ran
