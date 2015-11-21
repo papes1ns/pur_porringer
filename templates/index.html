@@ -16,10 +16,10 @@
   </head>
   <body>
 
-    {% if connected %}
-      <div class="status-bar-on">Connected: {{ connected }}</div>
+    {% if client == False %}
+      <div class="status-bar-off">Not Connected</div>
     {% else %}
-      <div class="status-bar-off">Connected: {{ connected }}</div>
+      <div class="status-bar-on">Connected</div>
     {% endif %}
 
     <h1>Click button to dispense food</h1>
