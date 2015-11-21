@@ -1,0 +1,122 @@
+[2015-11-21 20:47:37 +0000] [585] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7fc658f045f0>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7fc658f04320>
+  pre_fork: <function pre_fork at 0x7fc658f04488>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1000
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: pur_porringer
+  sendfile: True
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7fc658f041b8>
+  pre_exec: <function pre_exec at 0x7fc658f04b90>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7fc658f04758>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7fc658f0b2a8>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7fc658f04cf8>
+  post_request: <function post_request at 0x7fc658f04de8>
+  user: 1000
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7fc658f048c0>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7fc658f04f50>
+  chdir: /opt/pur_porringer
+  paste: None
+  default_proc_name: pur_porringer.wsgi:application
+  errorlog: pur_porringer.log
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7fc658f04050>
+  worker_abort: <function worker_abort at 0x7fc658f04a28>
+  bind: ['unix:/tmp/gunicorn.sock']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7fc658f0b140>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2015-11-21 20:47:37 +0000] [585] [INFO] Starting gunicorn 19.3.0
+[2015-11-21 20:47:37 +0000] [585] [DEBUG] Arbiter booted
+[2015-11-21 20:47:37 +0000] [585] [INFO] Listening at: unix:/tmp/gunicorn.sock (585)
+[2015-11-21 20:47:37 +0000] [585] [INFO] Using worker: sync
+[2015-11-21 20:47:37 +0000] [595] [INFO] Booting worker with pid: 595
+[2015-11-21 20:47:38 +0000] [598] [INFO] Booting worker with pid: 598
+[2015-11-21 20:47:38 +0000] [599] [INFO] Booting worker with pid: 599
+[2015-11-21 20:47:38 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:39 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:40 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:41 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:42 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:43 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:44 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:45 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:46 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:47 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:48 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:49 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:49 +0000] [599] [DEBUG] GET /
+[2015-11-21 20:47:49 +0000] [598] [DEBUG] GET /
+[2015-11-21 20:47:50 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:51 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:51 +0000] [599] [DEBUG] Ignoring EPIPE
+[2015-11-21 20:47:52 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:53 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:54 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:55 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:56 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:57 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:58 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:47:59 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:00 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:01 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:02 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:03 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:04 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:05 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:06 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:07 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:08 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:09 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:10 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:11 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:12 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:13 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:14 +0000] [585] [DEBUG] 3 workers
+[2015-11-21 20:48:15 +0000] [585] [DEBUG] 3 workers
