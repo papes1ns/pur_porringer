@@ -19,7 +19,7 @@ def index(request):
             print e
 
     context["connected"] = connected
-    context["log"] = Log.objects.all()[:10]
+    context["log"] = Log.objects.all()[:10][::-1]
     return render(request, "index.html", context)
 
 
