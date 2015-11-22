@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from paramiko import SSHClient, AutoAddPolicy
 
 from django.views.decorators.csrf import csrf_exempt
@@ -20,7 +20,7 @@ def index(request):
             print e
 
     context["client"] = client
-    context["log"] = Log.objects.all()[:10][::-1]
+    context["log"] = [datetime.strftime(row.ran, "[%I:%M %p] %A, %d/%b/%y") for row in Log.objects.all()[:10][::-1]]
     return render(request, "index.html", context)
 
 

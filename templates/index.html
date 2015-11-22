@@ -1,38 +1,57 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Pur Porringer</title>
     <style>
+      .container {
+        width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+      }
       .status-bar-on {
         background-color: #0ea114;
         color: #FFFFFF;
+        text-align: center;
       }
       .status-bar-off {
         background-color: #000000;
         color: #FFFFFF;
+        text-align: center;
+      }
+      .btn-dispense {
+        text-align: center;
+      }
+      .log {
+        list-style-type: none;
       }
     </style>
+
+    <link rel="stylesheet" type="text/css" href={% static "main/css/buttons.css" %} />
+
   </head>
   <body>
+    <div class="container">
+      {% if client == False %}
+        <div class="status-bar-off">Not Connected</div>
+      {% else %}
+        <div class="status-bar-on">Connected</div>
+      {% endif %}
 
-    {% if client == False %}
-      <div class="status-bar-off">Not Connected</div>
-    {% else %}
-      <div class="status-bar-on">Connected</div>
-    {% endif %}
+      <h1>Click button to dispense food</h1>
+      <form class="btn-dispense" method="POST" action="{% url 'index' %}">
+        <input class="button button-pill button-flat-primary" type="submit" value="Dispense" />
+      </form>
 
-    <h1>Click button to dispense food</h1>
-    <form method="POST" action="{% url 'index' %}">
-      <input type="submit" value="Dispense" />
-    </form>
+      <h2>Dispense Log (10 most recent):</h2>
+      <ul class="log">
+        {% for obj in log %}
+          <li>{{ obj }}</li>
+        {% endfor %}
+      </ul>
 
-    <h2>Dispense Log (10 most recent):</h2>
-    <ul>
-      {% for obj in log %}
-        <li>{{ obj.ran }}</li>
-      {% endfor %}
-    </ul>
-
+    </div>
   </body>
 </html>
