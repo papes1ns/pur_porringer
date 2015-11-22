@@ -25,7 +25,7 @@ SECRET_KEY = 'dszgra_r*a3)3t^($9+k8vk+zq2qq_6yd=ga70)88_x=r#*2yu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['52.32.152.80']
 
 
 # Application definition

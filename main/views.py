@@ -28,7 +28,7 @@ def call_motor_and_log(request):
     if response is None:
         return HttpResponse(None)
     row = Log.objects.create()
-    return HttpResponse(dateime.strftime(row.ran, DATETIME_FORMAT))
+    return HttpResponse(datetime.strftime(row.ran, DATETIME_FORMAT))
 
 def call_command(cmd):
     client = SSHClient()
