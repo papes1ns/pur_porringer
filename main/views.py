@@ -30,7 +30,6 @@ def call_motor_and_log(request):
     row = Log.objects.create()
     return HttpResponse(dateime.strftime(row.ran, DATETIME_FORMAT))
 
-
 def call_command(cmd):
     client = SSHClient()
     client.load_system_host_keys()

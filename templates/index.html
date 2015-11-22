@@ -54,7 +54,40 @@
     <script>
       $(document).ready(function() {
         isConnectedAndSetBanner();
+
+        $("#btn-dispense").click(function() {
+
+        });
       });
+
+      function callMotorAndLog() {
+        /**
+          Call motor script on RPi.
+          If successful log the timestamp.
+        */
+
+        var loading = isLoading(true);
+        $.get({% url "call_motor_and_log" %}, function(logEntry){
+          if(logEntry != "None"){
+            $(".log").prepend("<li>" + logEntry + "</li>");
+          }
+        });
+        loading(false);
+      }
+
+      function isLoading(loading) {
+        if (loading == true) {
+          btnVal = $("#btn-dispense").val()
+          if (btnVal == "Dispense") {
+            $("#btn-dispense").val("");
+          }
+          $("#btn-dispense").val(btnVal + "*");
+          setTimeout(isLoading(loading), 500);
+        }
+        else {
+          $("#btn-dispense").val("Dispense");
+        }
+      }
 
       function isConnectedAndSetBanner() {
         /**
@@ -63,9 +96,9 @@
           if connected, pull server for RPi IP every 60 seconds, if not,
           pull server for RPI IP ever 5 seconds.
         */
+
         $.get({% url "get_connection_ip" %}, function(ip) {
-          if(ip != "None"){
-	    console.log(ip);
+          if (ip != "None") {
             $("#banner-connection").attr("class", "status-bar-on");
             $("#banner-connection").text("Connected " + ip);
             setTimeout(isConnectedAndSetBanner, 60000);
