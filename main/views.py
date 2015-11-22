@@ -3,38 +3,42 @@ from paramiko import SSHClient, AutoAddPolicy
 
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
 from .models import Log
 
-@csrf_exempt
+DATETIME_FORMAT = "[ %I:%M %p ] %A -- %d %B %Y"
+
 def index(request):
-    context = {}
-    client = is_connected()
-    if request.method == "POST" and client != False:
-        try:
-            call_motor_on(client)
-            Log.objects.create()
-            return HttpResponseRedirect(reverse("index"))
-        except Exception, e:
-            print e
+    return render(request, "index.html", {
+        # 10 latest log enries
+        "log": [datetime.strftime(row.ran, DATETIME_FORMAT)
+                for row in Log.objects.all()[:10][::-1]],
+    })
 
-    context["client"] = client
-    context["log"] = [datetime.strftime(row.ran, "[%I:%M %p] %A, %d/%b/%y") for row in Log.objects.all()[:10][::-1]]
-    return render(request, "index.html", context)
+def get_connection_ip(request):
+    response = call_command("hostname -I")
+    if response is None:
+        return HttpResponse(None)
+    ip = response.readline()
+    return HttpResponse(ip)
+
+def call_motor_and_log(request):
+    response = call_command("sudo ./motor_on.py")
+    if response is None:
+        return HttpResponse(None)
+    row = Log.objects.create()
+    return HttpResponse(dateime.strftime(row.ran, DATETIME_FORMAT))
 
 
-def call_motor_on(client):
-    stdin, stdout, stderr = client.exec_command("sudo ./motor_on.py")
-
-def is_connected():
+def call_command(cmd):
     client = SSHClient()
     client.load_system_host_keys()
     client.set_missing_host_key_policy(AutoAddPolicy())
     try:
         client.connect("127.0.0.1", 2222, "pi", "raspberry")
-        return client
     except Exception, e:
-        print e
-        return False
+        return None
+    stdin, stdout, stderr = client.exec_command(cmd)
+    return stdout

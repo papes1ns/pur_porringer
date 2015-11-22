@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>Pur Porringer</title>
+
     <style>
       .container {
         width: 400px;
@@ -21,29 +22,25 @@
         color: #FFFFFF;
         text-align: center;
       }
-      .btn-dispense {
-        text-align: center;
-      }
       .log {
         list-style-type: none;
       }
     </style>
 
     <link rel="stylesheet" type="text/css" href={% static "main/css/buttons.css" %} />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
   </head>
   <body>
     <div class="container">
-      {% if client == False %}
-        <div class="status-bar-off">Not Connected</div>
-      {% else %}
-        <div class="status-bar-on">Connected</div>
-      {% endif %}
+
+      <div id="banner-connection"></div>
 
       <h1>Click button to dispense food</h1>
-      <form class="btn-dispense" method="POST" action="{% url 'index' %}">
-        <input class="button button-pill button-flat-primary" type="submit" value="Dispense" />
-      </form>
+
+      <center>
+        <input id="btn-dispense" class="button button-pill button-flat-primary" type="button" value="Dispense" />
+      </center>
 
       <h2>Dispense Log (10 most recent):</h2>
       <ul class="log">
@@ -53,5 +50,34 @@
       </ul>
 
     </div>
+
+    <script>
+      $(document).ready(function() {
+        isConnectedAndSetBanner();
+      });
+
+      function isConnectedAndSetBanner() {
+        /**
+          Check if RPi is connected and set the connection banner accordinly
+          This is a recursive function with a sleep timer.
+          if connected, pull server for RPi IP every 60 seconds, if not,
+          pull server for RPI IP ever 5 seconds.
+        */
+        $.get({% url "get_connection_ip" %}, function(ip) {
+          if(ip != "None"){
+            $("#banner-connection").attr("class", "status-bar-on");
+            $("#banner-connection").text("Connected " + ip);
+            setTimeout(isConnectedAndSetBanner, 60000);
+          }
+          else {
+            $("#banner-connection").attr("class", "status-bar-off");
+            $("#banner-connection").text("Not Connected");
+            setTimeout(isConnectedAndSetBanner, 5000);
+          }
+        });
+      }
+
+    </script>
+
   </body>
 </html>
