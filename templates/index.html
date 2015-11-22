@@ -72,17 +72,20 @@
             $(".log").prepend("<li>" + logEntry + "</li>");
           }
         });
-        loading(false);
+        loading = isLoading(false);
       }
 
       function isLoading(loading) {
         if (loading == true) {
-          btnVal = $("#btn-dispense").val()
+          btnVal = $("#btn-dispense").val();
           if (btnVal == "Dispense") {
             $("#btn-dispense").val("");
           }
-          $("#btn-dispense").val(btnVal + "*");
-          setTimeout(isLoading(loading), 500);
+          else {
+            $("#btn-dispense").val(btnVal + "*");
+            console.log("1");
+            setTimeout(isLoading, 1000);
+          }
         }
         else {
           $("#btn-dispense").val("Dispense");
