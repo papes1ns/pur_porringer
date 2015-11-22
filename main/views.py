@@ -21,8 +21,7 @@ def get_connection_ip(request):
     response = call_command("hostname -I")
     if response is None:
         return HttpResponse(None)
-    ip = response.readline()
-    return HttpResponse(ip)
+    return HttpResponse(response)
 
 def call_motor_and_log(request):
     response = call_command("sudo ./motor_on.py")
@@ -41,4 +40,4 @@ def call_command(cmd):
     except Exception, e:
         return None
     stdin, stdout, stderr = client.exec_command(cmd)
-    return stdout
+    return stdout.read()

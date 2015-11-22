@@ -65,6 +65,7 @@
         */
         $.get({% url "get_connection_ip" %}, function(ip) {
           if(ip != "None"){
+	    console.log(ip);
             $("#banner-connection").attr("class", "status-bar-on");
             $("#banner-connection").text("Connected " + ip);
             setTimeout(isConnectedAndSetBanner, 60000);
