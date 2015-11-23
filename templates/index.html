@@ -76,7 +76,7 @@
           if(logEntry != "None"){
             $(".log").prepend("<li>" + logEntry + "</li>");
             $("#btn-dispense").attr("isLoading", false);
-	    $("#btn-dispense").val("Dispense");
+	          $("#btn-dispense").val("Dispense");
             $("#btn-dispense").prop("disabled", false);
           }
         });
@@ -99,6 +99,7 @@
           pull server for RPI IP ever 5 seconds.
         */
 
+        $("#btn-dispense").prop("disabled", true);
 	      $("#banner-connection").attr("class", "status-bar-off");
         $("#banner-connection").text("Testing Connection..");
 
@@ -110,7 +111,6 @@
             setTimeout(isConnectedAndSetBanner, 60000);
           }
           else {
-            $("#btn-dispense").prop("disabled", true);
             $("#banner-connection").attr("class", "status-bar-off");
             $("#banner-connection").text("Not Connected");
             setTimeout(isConnectedAndSetBanner, 5000);
