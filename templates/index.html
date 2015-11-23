@@ -34,7 +34,7 @@
   <body>
     <div class="container">
 
-      <div id="banner-connection" class="status-bar-off">Testing connection..</div>
+      <div id="console" class="status-bar-off">Testing connection..</div>
 
       <h1>Click button to dispense food</h1>
 
@@ -77,11 +77,11 @@
             $("#btn-dispense").attr("isLoading", false);
 	          $("#btn-dispense").val("Dispense");
             $("#btn-dispense").prop("disabled", false);
-          }
         });
-        request.fail(function(data, textStatus) {
+        request.fail(function(errorMsg) {
           $("#btn-dispense").attr("isLoading", false);
-          $("#banner-connection").text(textStatus);
+          $("#btn-dispense").val("Dispense");
+          $("#console").text(errorMsg);
         });
       }
 
@@ -103,19 +103,19 @@
         */
 
         $("#btn-dispense").prop("disabled", true);
-	      $("#banner-connection").attr("class", "status-bar-off");
-        $("#banner-connection").text("Testing Connection..");
+	      $("#console").attr("class", "status-bar-off");
+        $("#console").text("Testing Connection..");
 
         $.get({% url "get_connection_ip" %}, function(ip) {
           if (ip != "None") {
             $("#btn-dispense").prop("disabled", false);
-            $("#banner-connection").attr("class", "status-bar-on");
-            $("#banner-connection").text("Connected " + ip);
+            $("#console").attr("class", "status-bar-on");
+            $("#console").text("Connected " + ip);
             setTimeout(isConnectedAndSetBanner, 60000);
           }
           else {
-            $("#banner-connection").attr("class", "status-bar-off");
-            $("#banner-connection").text("Not Connected");
+            $("#console").attr("class", "status-bar-off");
+            $("#console").text("Not Connected");
             setTimeout(isConnectedAndSetBanner, 5000);
           }
         });
