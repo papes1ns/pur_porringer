@@ -73,14 +73,16 @@
 
         var request = $.get({% url "call_motor_and_log" %});
         request.done(function(logEntry) {
-          if(logEntry != "None"){
             $(".log").prepend("<li>" + logEntry + "</li>");
             $("#btn-dispense").attr("isLoading", false);
 	          $("#btn-dispense").val("Dispense");
             $("#btn-dispense").prop("disabled", false);
           }
         });
-        $("#btn-dispense").attr("isLoading", false);
+        request.fail(function(data, textStatus) {
+          $("#btn-dispense").attr("isLoading", false);
+          $("#banner-connection").text(textStatus);
+        });
       }
 
       function isLoading() {
