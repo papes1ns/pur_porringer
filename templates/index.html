@@ -73,10 +73,10 @@
 
         var request = $.get({% url "call_motor_and_log" %});
         request.done(function(logEntry) {
-            $(".log").prepend("<li>" + logEntry + "</li>");
-            $("#btn-dispense").attr("isLoading", false);
-	    $("#btn-dispense").val("Dispense");
-            $("#btn-dispense").prop("disabled", false);
+          $(".log").prepend("<li>" + logEntry + "</li>");
+          $("#btn-dispense").attr("isLoading", false);
+          $("#btn-dispense").val("Dispense");
+          $("#btn-dispense").prop("disabled", false);
         });
         request.fail(function(errorMsg) {
           $("#btn-dispense").attr("isLoading", false);
