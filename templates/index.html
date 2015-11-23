@@ -34,7 +34,7 @@
   <body>
     <div class="container">
 
-      <div id="banner-connection"></div>
+      <div id="banner-connection" class="status-bar-off">Testing connection..</div>
 
       <h1>Click button to dispense food</h1>
 
@@ -66,24 +66,27 @@
           If successful log the timestamp.
         */
 
-        $("btn-dispense").attr("isLoading", true);
-        $("btn-dispense").val("");
+        $("#btn-dispense").attr("isLoading", true);
+        $("#btn-dispense").prop("disabled", true);
+        $("#btn-dispense").val("");
         isLoading();
 
         var request = $.get({% url "call_motor_and_log" %});
         request.done(function(logEntry) {
           if(logEntry != "None"){
             $(".log").prepend("<li>" + logEntry + "</li>");
-            $("btn-dispense").attr("isLoading", false);
+            $("#btn-dispense").attr("isLoading", false);
+	    $("#btn-dispense").val("Dispense");
+            $("#btn-dispense").prop("disabled", false);
           }
         });
       }
 
       function isLoading() {
         loading = $("#btn-dispense").attr("isLoading");
-        btnVal = $("btn-dispense").val();
-        if (loading == true) {
-          $("btn-dispense").val(btnVal + "*");
+        btnVal = $("#btn-dispense").val();
+        if (loading == "true") {
+          $("#btn-dispense").val(btnVal + "*");
           setTimeout(isLoading, 100);
         }
       }
@@ -96,6 +99,8 @@
           pull server for RPI IP ever 5 seconds.
         */
 
+	$("#banner-connection").attr("class", "status-bar-off");
+        $("#banner-connection").text("Testing Connection..");
         $.get({% url "get_connection_ip" %}, function(ip) {
           if (ip != "None") {
             $("#banner-connection").attr("class", "status-bar-on");
