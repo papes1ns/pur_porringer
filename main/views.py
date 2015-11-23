@@ -27,7 +27,7 @@ def call_motor_and_log(request):
     response = call_command("sudo ./motor_on.py")
     if response is None:
         return HttpResponse("Unable to dispense food", None, 403)
-    row = Log.objects.create()
+    row = Log.objects.create(ran=datetime.now())
     return HttpResponse(datetime.strftime(row.ran, DATETIME_FORMAT))
 
 def call_command(cmd):

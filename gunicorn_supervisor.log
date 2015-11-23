@@ -374,3 +374,180 @@ Starting pur_porringer as ubuntu
 Starting pur_porringer as ubuntu
 Starting pur_porringer as ubuntu
 Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 174, in run
+    self.manage_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 477, in manage_workers
+    self.spawn_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 541, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Traceback (most recent call last):
+  File "/opt/envs/pur_porringer/bin/gunicorn", line 11, in <module>
+    sys.exit(run())
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 74, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 189, in run
+    super(Application, self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 201, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 297, in halt
+    self.stop()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 342, in stop
+    time.sleep(0.1)
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 214, in handle_chld
+    self.reap_workers()
+  File "/opt/envs/pur_porringer/local/lib/python2.7/site-packages/gunicorn/arbiter.py", line 459, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+Starting pur_porringer as ubuntu
+Starting pur_porringer as ubuntu
