@@ -39,7 +39,7 @@
       <h1>Click button to dispense food</h1>
 
       <center>
-        <input id="btn-dispense" class="button button-pill button-flat-primary" type="button" value="Dispense" />
+        <input id="btn-dispense" class="button button-pill button-flat-primary" type="button" value="Dispense" disabled />
       </center>
 
       <h2>Dispense Log (10 most recent):</h2>
@@ -99,15 +99,18 @@
           pull server for RPI IP ever 5 seconds.
         */
 
-	$("#banner-connection").attr("class", "status-bar-off");
+	      $("#banner-connection").attr("class", "status-bar-off");
         $("#banner-connection").text("Testing Connection..");
+
         $.get({% url "get_connection_ip" %}, function(ip) {
           if (ip != "None") {
+            $("#btn-dispense").prop("disabled", false);
             $("#banner-connection").attr("class", "status-bar-on");
             $("#banner-connection").text("Connected " + ip);
             setTimeout(isConnectedAndSetBanner, 60000);
           }
           else {
+            $("#btn-dispense").prop("disabled", true);
             $("#banner-connection").attr("class", "status-bar-off");
             $("#banner-connection").text("Not Connected");
             setTimeout(isConnectedAndSetBanner, 5000);
