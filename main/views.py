@@ -1,7 +1,7 @@
 from datetime import datetime
 from paramiko import SSHClient, AutoAddPolicy
 
-from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
@@ -13,7 +13,7 @@ DATETIME_FORMAT = "[ %-I:%M %p ] %A -- %d %B %Y"
 def index(request):
     return render(request, "index.html", {
         # 10 latest log enries
-        "log": [datetime.strftime(row.ran, DATETIME_FORMAT)
+        "log": [datetime.strftime(timezone.localtime(row.ran), DATETIME_FORMAT)
                 for row in Log.objects.all().order_by("-ran")[:10]],
     })
 
