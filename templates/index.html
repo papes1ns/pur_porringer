@@ -12,12 +12,12 @@
         margin-right: auto;
         margin-left: auto;
       }
-      .status-bar-on {
+      .status-bar-good {
         background-color: #0ea114;
         color: #FFFFFF;
         text-align: center;
       }
-      .status-bar-off {
+      .status-bar-info {
         background-color: #000000;
         color: #FFFFFF;
         text-align: center;
@@ -34,12 +34,12 @@
   <body>
     <div class="container">
 
-      <div id="console" class="status-bar-off">Testing connection..</div>
+      <div id="console" class="status-bar-info">Testing connection..</div>
 
       <h1>Click button to dispense food</h1>
 
       <center>
-        <input id="btn-dispense" class="button button-pill button-flat-primary" type="button" value="Dispense" disabled />
+        <input id="btn-dispense" class="button button-pill button-flat-primary" type="button" value="Dispense"  />
       </center>
 
       <h2>Dispense Log (10 most recent):</h2>
@@ -82,6 +82,7 @@
           $("#btn-dispense").attr("isLoading", false);
           $("#btn-dispense").val("Dispense");
           $("#console").text(errorMsg);
+          $("#console").attr("class", "status-bar-info");
         });
       }
 
@@ -102,19 +103,19 @@
           pull server for RPI IP ever 5 seconds.
         */
 
-        $("#btn-dispense").prop("disabled", true);
-	      $("#console").attr("class", "status-bar-off");
+        $("#btn-dispense").prop("disabled", false);
+	      $("#console").attr("class", "status-bar-info");
         $("#console").text("Testing Connection..");
 
         $.get({% url "get_connection_ip" %}, function(ip) {
           if (ip != "None") {
             $("#btn-dispense").prop("disabled", false);
-            $("#console").attr("class", "status-bar-on");
+            $("#console").attr("class", "status-bar-good");
             $("#console").text("Connected " + ip);
             setTimeout(isConnectedAndSetBanner, 60000);
           }
           else {
-            $("#console").attr("class", "status-bar-off");
+            $("#console").attr("class", "status-bar-info");
             $("#console").text("Not Connected");
             setTimeout(isConnectedAndSetBanner, 5000);
           }

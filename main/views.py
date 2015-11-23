@@ -26,7 +26,7 @@ def get_connection_ip(request):
 def call_motor_and_log(request):
     response = call_command("sudo ./motor_on.py")
     if response is None:
-        return HttpResponse(status_code=500, content="Unable to dispense food")
+        return HttpResponse("Unable to dispense food", None, 403)
     row = Log.objects.create()
     return HttpResponse(datetime.strftime(row.ran, DATETIME_FORMAT))
 
