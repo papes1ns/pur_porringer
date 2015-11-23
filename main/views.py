@@ -8,13 +8,13 @@ from django.core.urlresolvers import reverse
 
 from .models import Log
 
-DATETIME_FORMAT = "[ %I:%M %p ] %A -- %d %B %Y"
+DATETIME_FORMAT = "[ %-I:%M %p ] %A -- %d %B %Y"
 
 def index(request):
     return render(request, "index.html", {
         # 10 latest log enries
         "log": [datetime.strftime(row.ran, DATETIME_FORMAT)
-                for row in Log.objects.all()[:10][::-1]],
+                for row in Log.objects.all().order_by("-ran")[:10]],
     })
 
 def get_connection_ip(request):

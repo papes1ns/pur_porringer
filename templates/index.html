@@ -66,29 +66,25 @@
           If successful log the timestamp.
         */
 
-        var loading = isLoading(true);
-        $.get({% url "call_motor_and_log" %}, function(logEntry){
+        $("btn-dispense").attr("isLoading", true);
+        $("btn-dispense").val("");
+        isLoading();
+
+        var request = $.get({% url "call_motor_and_log" %});
+        request.done(function(logEntry) {
           if(logEntry != "None"){
             $(".log").prepend("<li>" + logEntry + "</li>");
+            $("btn-dispense").attr("isLoading", false);
           }
         });
-        loading = isLoading(false);
       }
 
-      function isLoading(loading) {
+      function isLoading() {
+        loading = $("#btn-dispense").attr("isLoading");
+        btnVal = $("btn-dispense").val();
         if (loading == true) {
-          btnVal = $("#btn-dispense").val();
-          if (btnVal == "Dispense") {
-            $("#btn-dispense").val("");
-          }
-          else {
-            $("#btn-dispense").val(btnVal + "*");
-            console.log("1");
-            setTimeout(isLoading, 1000);
-          }
-        }
-        else {
-          $("#btn-dispense").val("Dispense");
+          $("btn-dispense").val(btnVal + "*");
+          setTimeout(isLoading, 100);
         }
       }
 
