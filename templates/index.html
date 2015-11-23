@@ -75,7 +75,7 @@
         request.done(function(logEntry) {
             $(".log").prepend("<li>" + logEntry + "</li>");
             $("#btn-dispense").attr("isLoading", false);
-	          $("#btn-dispense").val("Dispense");
+	    $("#btn-dispense").val("Dispense");
             $("#btn-dispense").prop("disabled", false);
         });
         request.fail(function(errorMsg) {
