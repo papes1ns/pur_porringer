@@ -42,7 +42,7 @@
         <input id="btn-dispense" class="button button-pill button-flat-primary" type="button" value="Dispense" disabled />
       </center>
 
-      <h2>Dispense Log (10 most recent):</h2>
+      <h2>Dispense Log:</h2>
       <ul class="log">
         {% for obj in log %}
           <li>{{ obj }}</li>
@@ -88,6 +88,9 @@
       }
 
       function isLoading() {
+        /**
+          Loading animation when dispense button is clicked to trigger motor
+        */
         loading = $("#btn-dispense").attr("isLoading");
         btnVal = $("#btn-dispense").val();
         if (loading == "true") {
@@ -101,7 +104,7 @@
           Check if RPi is connected and set the connection banner accordinly
           This is a recursive function with a sleep timer.
           if connected, pull server for RPi IP every 60 seconds, if not,
-          pull server for RPI IP ever 5 seconds.
+          pull server for RPi IP every 5 seconds.
         */
 
         $("#btn-dispense").prop("disabled", true);
